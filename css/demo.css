@@ -66,9 +66,6 @@ a{
 	color: #333;
 	text-decoration: none;
 }
-.cb-slideshow h3 {
-	font-family: 'Playfair Display', serif;
-}
 .container{
 	position: relative;
 	text-align: center;
@@ -150,20 +147,20 @@ p.codrops-demos a.current-demo:hover{
 	line-height: 18px;
 	margin: 2px 3px;
 	font-weight: 800;
-	-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+	/*-webkit-box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
 	-moz-box-shadow:0px 1px 1px rgba(0,0,0,0.1);
-	box-shadow: 0px 1px 1px rgba(0,0,0,0.1);
+	box-shadow: 0px 1px 1px rgba(0,0,0,0.1);*/
 	color:#fff;
 	-webkit-border-radius: 5px;
 	-moz-border-radius: 5px;
 	border-radius: 5px;
 	background: #a90329;
-	background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
+	/*background: -moz-linear-gradient(top, #a90329 0%, #8f0222 44%, #6d0019 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a90329), color-stop(44%,#8f0222), color-stop(100%,#6d0019));
 	background: -webkit-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
 	background: -o-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
 	background: -ms-linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
-	background: linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);
+	background: linear-gradient(top, #a90329 0%,#8f0222 44%,#6d0019 100%);*/
 }
 p.codrops-demos a:hover{
 	background: #6d0019;
