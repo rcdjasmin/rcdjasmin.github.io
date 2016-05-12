@@ -66,6 +66,9 @@ a{
 	color: #333;
 	text-decoration: none;
 }
+.cb-slideshow h3 {
+	font-family: 'Playfair Display', serif;
+}
 .container{
 	position: relative;
 	text-align: center;
