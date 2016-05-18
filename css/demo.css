@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'BebasNeueRegular';
+    font-family: 'Playfair Display';
     src: url('fonts/PlayfairDisplay-Italic-webfont.eot');
     src: url('fonts/PlayfairDisplay-Italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('fonts/PlayfairDisplay-Italic-webfont.woff') format('woff'),
@@ -51,7 +51,7 @@ abbr,acronym { border:0;
 }
 /* General Demo Style */
 body{
-	font-family: Constantia, Palatino, "Palatino Linotype", "Palatino LT STD", Georgia, serif;
+	font-family: "Playfair Display", Georgia, serif;
 	background: #fff;
 	font-weight: 400;
 	font-size: 15px;
