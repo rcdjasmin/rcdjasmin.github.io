@@ -174,8 +174,19 @@ a{
 	}
 	.container > header h1{
 	line-height: 50px;
+	font-family: 'Playfair Display';
+	}
+
+	.container{
+	/*position: relative;
+	text-align: center;*/
+	position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-35%);
 	}
 }
+/* Border */
 #border{
 	border: 15px solid #a67c52;
 	position: absolute;
@@ -185,24 +196,8 @@ a{
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 }
-/* Border */
-#top, #bottom, #left, #right {
-	background: #a67c52;
-	position: fixed;
-	}
-	#left, #right {
-		top: 0; bottom: 0;
-		width: 15px;
-		}
-		#left { left: 0; }
-		#right { right: 0; }
-		
-	#top, #bottom {
-		left: 0; right: 0;
-		height: 15px;
-		}
-		#top { top: 0; }
-		#bottom { bottom: 0; }
+
+
 
 /* Responsive border */
 @media 
