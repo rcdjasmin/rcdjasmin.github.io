@@ -27,7 +27,7 @@
 		    <nav>
 		        <div class="nav-bar" data-fixed-at="700">
 		            <div class="nav-module logo-module left">
-		                <a href="index.html"><img alt="logo" class="logo logo-dark" src="images/logo-dark.png"> <img alt="logo" class="logo logo-light" src="img/logo-light.png"></a>
+		                <a href="index.html"><img alt="logo" class="logo logo-dark" src="images/logo-dark.png"> <img alt="logo" class="logo logo-light" src="images/logo-light.png"></a>
 		            </div>
 		            <div class="nav-module menu-module left">
 		                <ul class="menu">
@@ -88,7 +88,7 @@
 					<div class="row">
 						<div class="col-sm-12 text-center">
 							<h6>Case Study</h6>
-							<h3>Redesigning the Upload and Capture workflow<br></h3>
+							<h3>Redesigning the Upload/Capture Workflow<br></h3>
 							<p class="lead">An improved way of adding documents to Enadoc for faster performance and better experience.<br></p>
 						</div>
 					</div>
@@ -105,14 +105,14 @@
 				<div class="row">
 					<div class="col-md-7 col-md-push-5 col-sm-8 col-sm-push-4">
 						<h4>Background</h4>
-						<p class="lead">Enadoc, a browser-based document imaging and management solution, has recently added two new features: My Workspace and Smart Tags. Both presenting a couple of challenges, mainly:</p>
+						<p class="lead">Enadoc, a browser-based document imaging and management solution, has recently added two new features: My Workspace and Smart Tags. Both present a couple of UX challenges, mainly:</p>
 						<div class="feature col-sm-6">
 							<h5>A gap in the user's workflow</h5>
-							<p>The user now has to go to a different page to add a document to My Workspace, and another one to upload it to Enadoc.</p>
+							<p>The user has to go to a different page to add a document to My Workspace, and another to upload it to Enadoc.</p>
 						</div>
 						<div class="feature col-sm-6">
 							<h5>Poor performance</h5>
-							<p>Consequently, the software has to load and reload the document preview a total of three times.</p>
+							<p>As a consequence, the software has to load and reload the document preview a total of <b>three</b> times.</p>
 						</div>
 					</div>
 				</div>
@@ -140,12 +140,9 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-md-5 col-sm-8">
-							<h4>A Problem and Three Prototypes</h4>
-							<p>
-								This problem unwittingly came up in the middle of a 3-day internal meeting overseas — perfect timing, but a slightly limited duration for exploration (considering we had other things in the agenda).
-							</p>
-							<p>
-								A suggestion that was agreed upon is inspired by Microsoft Azure’s horizontal scrolling pattern:<br><br><br><br><br><br>However, the current workflow is not linear.&nbsp;After capturing a document, a user has to go back to My Workspace in order to tag it. We found a way to solve this problem later on, but at this point we stuck with the Azure-style navigation.</p>
+							<h4>Problems &amp; Prototypes</h4>
+							<p>After brainstorming, we all agreed on a solution inspired by Microsoft Azure’s horizontal scrolling pattern. Here, each step is revealed in a panel that animates sideways. There will be four panels: My Workspace, Document Preview, Capture, and the simplified Tag/Redact.<br></p>
+							<p><b>Now the user can go through the entire process without ever having to leave the page.</b><br><br>But there is one setback: the current workflow is not linear. After capturing a document, the user has to go back to My Workspace and wait for the Smart Tags (<i>generated via optical character recognition</i>) before proceeding to the next step.</p>
 						</div>
 					</div>
 				</div>
@@ -156,7 +153,7 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="elements--title">
-								<h4>By editing existing screens and creating a quick animation on Principle, we managed to define the step-by-step flow and explore possible transitions.<br></h4>
+								<h4>By creating animated prototypes on Principle, I explored possible work-arounds:<br></h4>
 							</div>
 						</div>
 						<div class="col-md-4 col-sm-6">
@@ -194,9 +191,9 @@
 								</div>
 								<div class="card__body boxed bg--white">
 									<div class="card__title">
-										<h5>Azure-Style</h5>
+										<h5>Stack Left</h5>
 									</div>
-									<span><em>A brief description of the card.</em></span>
+									<span><em>This is what we went with.</em></span>
 									<p> </p>
 								</div>
 							</div>
@@ -210,21 +207,21 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="elements--title">
-								<h4>As I began redesigning the screens, it became clear that the tagging layout had to be changed as well in order to adapt to the new navigational flow. Some of the changes are:</h4>
+								<h4>As I began redesigning the screens, it became clear that the tagging's navigational layout had to be restructured as well. Some of the changes are:</h4>
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="feature feature-1">
-								<i class="icon icon-Ship"></i>
-								<h6>TABS INSTEAD OF STEP-BY-STEP TASKS</h6>
-								<p>Since not every step is required, it will be easier for the user to navigate with tabs instead of clicking skip/next for every action. The user can easily go back and forth without much delay. Additionally, the program will not have to reload and preview the document for every step.</p>
+								<i class="icon icon-Len-2"></i>
+								<h6>TABS INSTEAD OF STEP-BY-STEP NAVIGATION</h6>
+								<p>Since not every step is required, we switched to tabs instead of clicking skip or next for every action. Now the user can easily go back and forth without much delay. Additionally, the document preview won't have to reload for every step.</p>
 							</div>
 						</div>
 						<div class="col-sm-6">
 							<div class="feature feature-1">
-								<i class="icon icon-Fingerprint-2"></i>
+								<i class="icon icon-Duplicate-Window"></i>
 								<h6>A MODAL FOR CHOOSING A TAG PROFILE</h6>
-								<p>- Size constraints (tag cloud + properties + default values)<br>- Better conceptual model for the user because even if it is in tag cloud form, nakahiwalay siya sa tag cloud ng tagging<br>- ngayon nasa breadcrumbs sya para malaman na under tag profile ung tags na nakikita nya ngayon</p>
+								<p>The step of choosing a tag profile cannot fit into one panel, thus, a resizable modal is introduced. This also eliminates the problem of confusing this step with the tagging step (both of which have almost identical tag clouds).<br></p>
 							</div>
 						</div>
 						
@@ -236,7 +233,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-10 col-sm-offset-1 text-center">
-							<h4>This is what we ended up with:</h4>
+							<h4>Countless revisions later:</h4>
 					        <div class="tabs-container tabs-1">
 								<ul class="tabs">
 									<li class="active">
@@ -270,28 +267,22 @@
 					<div class="row">
 						<div class="col-sm-12">
 							<div class="elements--title">
-								<h4>A million revisions and pixel pushing later, it was ready for development. As an afterthought, I created an interactive prototype on Invision and let other people try it. Testing my work on other people and seeing it through new eyes led to more changes:</h4>
+								<h4>It seemed we were ready for development. However, after conducting a quick usability test with our colleagues, we had to make a couple more changes:</h4>
 							</div>
 						</div>
-						<div class="col-sm-4">
-							<div class="feature feature-1">
-								<i class="icon icon-Add-SpaceBeforeParagraph"></i>
-								<h5>Removing the tag profile from the breadcrumbs</h5>
-								<p>Di nila gets yung part na yun. It has to be in a place that is more visible and accessible ganern.</p>
-							</div>
-						</div>
-						<div class="col-sm-4">
+						
+						<div class="col-sm-6">
 							<div class="feature feature-1">
 								<i class="icon icon-Pencil"></i>
-								<h5>Edit mode in Capture Settings</h5>
-								<p>Nalito sila sa buttons jeskelerd it was an oversight on my part</p>
+								<h5>Adding '<i>Edit mode</i>' in Capture Settings</h5>
+								<p>The buttons to save the capture settings has been replaced by an 'Edit' link because the buttons distracted the users from their main goal.</p>
 							</div>
 						</div>
-						<div class="col-sm-4">
+						<div class="col-sm-6">
 							<div class="feature feature-1">
 								<i class="icon icon-Three-ArrowFork"></i>
 								<h5>Giving the user the freedom to choose where to go next</h5>
-								<p>Iba iba yung use case, and kailangan maaccomodate lahat. Moreover, di maganda na ipwersa mo sila to do one thing! Bad UX!</p>
+								<p>To accommodate different behaviors, a prompt asking the user how to proceed is added.</p>
 							</div>
 						</div>
 					</div>
