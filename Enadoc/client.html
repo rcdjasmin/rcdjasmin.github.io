@@ -1,0 +1,177 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Enadoc Online Portal</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel ="stylesheet" href="res/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+    <link rel="stylesheet" href="res/fonts/css/font-awesome.min.css">
+    <link rel="stylesheet" href="res/css/main.min.css">
+    <body>
+        <!--[if lt IE 10]>
+        <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+
+        <!--===== MAIN SITE WRAP STARTS HERE =====-->
+        <section class="main-reg-wrap">
+            <div class="container"> <!-- FLUID CONTAINER STARTS HERE  -->
+                <div class="form-tb"> 
+                    <div class="tb-row">
+                        <div class="form-cell">
+                            <div class="header">
+                                <div class="img"><img src="res/img/enadoc_logo.png"></div>
+                                <div class="form title">Try Enadoc - for free!</div>
+                            </div>  
+                            <div class="processing-msg"> <!-- FORM PROCESSING SECTION STARTS HERE  -->
+                                     <div class="loading-msg">You are now subscribed to a free trial. Please wait while we process your subscription. We will send you an email with your temporary password shortly. Thank you,  </div>     
+                                      <div class="loader">Loading...</div>
+                                      <div class="success-msg">
+                                        <div>Congratulations </div>
+                                       Your Enadoc Subscription is now ready. Please click 'Continue' to access Enadoc.
+                                      </div>
+                                
+                                      <button type="button" class="nxt-btn finish-btn" id='finsihBtn'>Continue</button>
+                                      <div class="latop-wrap">
+                                          <a id="play-video" class="video-play-button" href="#">
+                                              <span></span>
+                                          </a>
+                                            <img src="res/img/laptop.png">
+                                
+                                      </div>      
+                            </div><!-- FORM PROCESSING SECTION ENDS HERE  -->
+                            <div class="f-frame"><!-- FORM FRAME STARTS HERE  -->
+                                
+                                <form class="client-form" id="clientInfoForm"> <!-- CLIENT INFO FORM STARTS HERE  -->
+                                <div class="form-group">
+                                      <label for="name" class="label-title">Name</label>
+                                      <input type="text" name="name" placeholder="John Doe" required="required"/>
+    	                               <span class="error-wrap"></span>
+                                </div>
+                              
+                                <div class="form-group">
+                                    <label for="company" class="label-title">Company</label>
+                                    <input type="text" name="company" placeholder="Company 123" required="required"/>
+                                    <span class="error-wrap"></span>
+                                </div>   
+                                
+                                    
+                                <div class="form-group">
+                                             <label for="email" class="label-title"> Email</label>
+        <input type="email" name="email" id="firstEmail" placeholder="yourname@company.com" required="required"  disabled="disabled"/>
+                                     <span class="error-wrap"></span>
+                                </div>    
+                                    
+                            
+                                    <div class="form-group">
+                                       <label for="confrim_email" class="label-title">Confirm Email</label>
+        <input type="email" name="confrim_email" placeholder="yourname@company.com" required="required"  disabled="disabled"/>
+                                       <span class="error-wrap"></span>
+                                    </div>   
+       
+                                    <div class="form-group">
+                                        <label for="country" class="label-title">Country</label>
+                                        <div class="select-box">
+                                            <select name="country" id="country-select">
+                                              <option value="country">Country</option>
+                                              <option value="1">Pure CSS</option>
+                                              <option value="2">No JS</option>
+                                              <option value="3">Nice!</option>
+                                            </select>
+                                            <span class="error-wrap"></span>
+                                        </div>
+                                    </div>
+                                    
+
+        <button type="submit" class="nxt-btn" id='nextBtn'>Next</button>
+                                </form><!-- CLIENT INFO FORM ENDS HERE  -->
+                                
+                                
+                                
+                                <form class="account-form" id='clientAccountForm'><!-- CLIENT ACCOUNT FORM STARTS HERE  -->
+                                    
+                                    <div class="form-group clearfix mre-mrgn"> <!-- ACCOUNT TYPE STARTS HERE -->
+                                        <label for="" class="label-title">Account Type</label>
+                                        <div class="radio-wrap">
+                                           
+                                            <input type="radio" name="rGroup" value="1" id="teamAccount" checked="checked">
+                                            <label for='teamAccount' class="radio-label" id="teamLabel"> </label>
+                                            <div class="radio-txt"><i class="fa fa-users" aria-hidden="true"></i> Team Account<br>(1 library, 3 users)</div>
+                                        </div>
+                                        <div class="radio-wrap">
+                                            <div class="star"><i class="fa fa-star" aria-hidden="true"></i></div>
+                                            <input type="radio" name="rGroup" value="2" id="businessAccount">
+                                            <label for='businessAccount' class="radio-label" id="businessLabel"> </label>
+                                            <div class="radio-txt"><i class="fa fa-suitcase" aria-hidden="true"></i> Business Account<br>(3 library, 5 users)</div>
+                                        </div>
+                                        <span data-toggle="tooltip" data-placement="bottom" title="Libraries help you access documents stored in their respective  files through 'tags'. "><span class="fa fa-info-circle"></span>What is a library?</span>
+                                    </div><!-- ACCOUNT TYPE ENDS HERE  -->
+                                    
+                                    <div class="form-group optional-users clearfix"><!-- ACCOUNT EMAILS STARTS HERE  -->
+                                       <label for="email1" class="label-title"> Users (optioanl) </label>
+                                        <div class="input-wrap">
+                                            <input class="user-email" type="email" name="email1" placeholder="yourname@company.com" required="required"/>
+                                            <span class="error-wrap2"></span>
+                                        </div>
+                                        <div class="input-wrap">
+                                         <input class="user-email" type="email" name="email2" placeholder="yourname@company.com" required="required"/>  <span class="error-wrap2"></span>
+                                        </div>
+                                        
+                                        <div class="input-wrap">
+                                        <input class="user-email" type="email" name="email3" placeholder="yourname@company.com" required="required"/><span class="error-wrap2">
+                                        </div>
+                                            
+                                        <div class="input-wrap additional-input">
+                                        <input class="user-email" type="email" name="email4" placeholder="yourname@company.com" required="required"/><span class="error-wrap2">
+                                        </div>
+                                            <div class="input-wrap additional-input">
+                                        <input class="user-email" type="email" name="email5" placeholder="yourname@company.com" required="required"/><span class="error-wrap2">
+                                        </div>
+                                    </div><!-- ACCOUNT EMAILS STARTS HERE  -->
+                                       
+                                        
+                                    <div class="form-group clearfix">
+                                        <button type="button" class="nxt-btn back-btn" id='backBtn'>Back</button>
+                                        <button type="submit" class="" id='subProcessBtn'>Start My Free Trial</button>
+                                    </div>
+                                    
+                                </form><!-- CLIENT ACCOUNT FORM ENDS HERE  -->
+                                
+                        
+                            
+                            </div> <!-- FORM FRAME ENDS HERE  -->
+                            <!-- VIDEO OVERLAY STARTS  -->
+                            <div id="video-overlay" class="video-overlay">
+                                <a class="video-overlay-close">&times;</a>
+                            </div>
+                            <!-- VIDEO OVERLAY ENDS  -->
+                        </div>
+                    
+                    
+                    </div>
+                
+                
+                </div>
+            
+            
+            
+            </div><!-- FLUID CONTAINER ENDS HERE  -->
+        
+        
+        
+        
+        </section>
+
+        <!--===== MAIN SITE WRAP ENDS HERE =====-->
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.15.1/jquery.validate.min.js"></script>
+        <script src="js/app.js"></script>
+    </body>
+
+</html>
