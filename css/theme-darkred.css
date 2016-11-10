@@ -164,8 +164,8 @@ h5,
 }
 h6,
 .h6 {
-  font-size: 0.625em;
-  line-height: 2.6em;
+  font-size: 0.825em;
+  line-height: 1.6em;
 }
 .lead {
   font-size: 1.4375em;
@@ -8184,7 +8184,7 @@ section[class*='elements-'] hr + .row {
 .portfolio-item em {
   font-family: 'Playfair Display', Georgia, Times New Roman, serif;
   font-weight: 300;
-  font-size: 0.8em;
+  font-size: 1em;
 }
 
 /******ABOUT PAGE******/
