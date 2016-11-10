@@ -3,7 +3,7 @@ var mr = (function ($, window, document){
     "use strict";
 
     var mr         = {},
-        components = {documentReady: [], windowLoad: []};
+        components = {documentReady: [],documentReadyDeferred: [], windowLoad: [], windowLoadDeferred: []};
 
 
     $(document).ready(documentReady);
@@ -12,7 +12,7 @@ var mr = (function ($, window, document){
     function documentReady(context){
         
         context = typeof context == typeof undefined ? $ : context;
-        components.documentReady.forEach(function(component){
+        components.documentReady.concat(components.documentReadyDeferred).forEach(function(component){
             component(context);
         });
     }
@@ -20,7 +20,7 @@ var mr = (function ($, window, document){
     function windowLoad(context){
         
         context = typeof context == "object" ? $ : context;
-        components.windowLoad.forEach(function(component){
+        components.windowLoad.concat(components.windowLoadDeferred).forEach(function(component){
            component(context);
         });
     }
@@ -60,7 +60,7 @@ mr = (function (mr, $, window, document){
     };
 
     mr.util.getURLParameter = function(name) {
-        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [, ""])[1].replace(/\+/g, '%20')) || null;
+        return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search) || [undefined, ""])[1].replace(/\+/g, '%20')) || null;
     };
 
 
@@ -68,13 +68,39 @@ mr = (function (mr, $, window, document){
         return string.charAt(0).toUpperCase() + string.slice(1);
     };
 
-    mr.util.slugify = function(text){
-        return text
-            .toLowerCase()
-            .replace(/[^\w ]+/g, '')
-            .replace(/ +/g, '-');
+    mr.util.slugify = function(text, spacesOnly){
+        if(typeof spacesOnly !== typeof undefined){
+            return text.replace(/ +/g, '');
+        }else{
+            return text
+                .toLowerCase()
+                .replace(/[^\w ]+/g, '')
+                .replace(/ +/g, '-');
+        }
     };
 
+    mr.util.sortChildrenByText = function(parentElement, reverse){
+        var $parentElement = $(parentElement);
+        var items          = $parentElement.children().get();
+        var order          = -1;
+        var order2         = 1;
+        if(typeof reverse !== typeof undefined){order = 1; order2 = -1;}
+
+        items.sort(function(a,b){
+          var keyA = $(a).text();
+          var keyB = $(b).text();
+
+          if (keyA < keyB) return order;
+          if (keyA > keyB) return order2;
+          return 0;
+        });
+        
+        // Append back into place
+        $parentElement.empty();
+        $(items).each(function(i, itm){
+          $parentElement.append(itm);
+        });
+    };
     
     // Set data-src attribute of element from src to be restored later
     mr.util.idleSrc = function(context, selector){
@@ -138,23 +164,25 @@ mr = (function (mr, $, window, document){
     mr.scroll.y         = 0;
     mr.scroll.x         = 0;
 
-    var documentReady = function($){
+     var documentReady = function($){
         
+        // Check if scroll-assist is on
+        if($('body').hasClass('scroll-assist')){
+            mr.scroll.assisted = true;
+        }
+
         //////////////// Capture Scroll Event and fire scroll function
         
-        addEventListener('scroll', function(evt) {
-            mr.util.requestAnimationFrame.call(window, function(){
-                mr.scroll.update(evt)
-            });
+        addEventListener('scroll', function(evt) {        
+                //if(!mr.scroll.assisted){
+                    window.mr.scroll.y = window.pageYOffset;
+                //}
+                window.mr.scroll.update(evt);
         }, false);
         
     };
 
     mr.scroll.update = function(event){
-    
-        mr.scroll.y = window.pageYOffset;
-        mr.scroll.x = window.pageXOffset;
- 
         // Loop through all mr scroll listeners
         for (var i = 0, l = mr.scroll.listeners.length; i < l; i++) {
            mr.scroll.listeners[i](event);
@@ -673,6 +701,9 @@ mr = (function (mr, $, window, document){
                                                     optimised: false
                                                 });
                                             }
+                                            else{
+                                                console.log('Map marker error: '+status);
+                                            }
                                         });
                                     }
 
@@ -726,9 +757,6 @@ mr = (function (mr, $, window, document){
                 filters.append('<ul></ul>');
                 filtersList = filters.find('> ul');
 
-                // Add a filter "all" option
-                filtersList.append('<li class="active" data-masonry-filter="*">'+filterAllText+'</li>');
-
                 // To avoid cases where user leave filter attribute blank
                 // only take items that have filter attribute
                 masonryContainer.find('.masonry__item[data-masonry-filter]').each(function(){
@@ -745,7 +773,7 @@ mr = (function (mr, $, window, document){
 
                         // Slugify the tag
 
-                        var slug = mr.util.slugify(tag);
+                        var slug = mr.util.slugify(tag, true);
 
                         // Add the filter class to the masonry item
 
@@ -758,6 +786,11 @@ mr = (function (mr, $, window, document){
                         }
                     }); 
                 });
+
+                mr.util.sortChildrenByText($(this).find('.masonry__filters ul'));
+                // Add a filter "all" option
+                filtersList.prepend('<li class="active" data-masonry-filter="*">'+filterAllText+'</li>');
+
             }
             //End of "if filterable masonry item exists"
         });
@@ -788,7 +821,7 @@ mr = (function (mr, $, window, document){
             if(masonryFilter.attr('data-masonry-filter') !== '*'){
                 filterValue = '.filter-'+masonryFilter.attr('data-masonry-filter');
             }
-            $('.masonry__filters li').removeClass('active');
+            masonryFilter.siblings('li').removeClass('active');
             masonryFilter.addClass('active');
             masonryContainer.removeClass('masonry--animate');
             masonryContainer.isotope({ filter: filterValue });
@@ -840,7 +873,6 @@ mr = (function (mr, $, window, document){
             if(modalContent.attr('data-height') !== undefined){
                 var modalHeight = modalContent.attr('data-height').substr(0,modalContent.attr('data-height').indexOf('%')) * 1;
                 if($window.height()<768){
-                    console.log($window.height());
                     modalHeight = modalHeight + 15;  
                 }
                 modalContent.css('height',modalHeight + '%');
@@ -913,7 +945,6 @@ mr = (function (mr, $, window, document){
         });
 
         // Trigger autoshow modals
-
         $('.modal-container[data-autoshow]').each(function(){
             var modal = $(this);
             var millisecondsDelay = modal.attr('data-autoshow')*1;
@@ -930,6 +961,15 @@ mr = (function (mr, $, window, document){
                 mr.modals.showModal(modal, millisecondsDelay);
             }
         });
+
+        // Autoshow modal by ID from location href
+        if(window.location.href.split('#').length == 2){
+            var modalID = window.location.href.split('#').pop();
+            if($('[data-modal-id="'+modalID+'"]').length){
+                mr.modals.closeActiveModal();
+                mr.modals.showModal($('[data-modal-id="'+modalID+'"]'));
+            }  
+        }
 
         // Make modal scrollable
         $(document).on('wheel mousewheel scroll','.modal-content, .modal-content .scrollable', function(evt){
@@ -1261,7 +1301,7 @@ mr = (function (mr, $, window, document){
 
         form.find('input[type="submit"]').each(function(){
             var submit = $(this);
-            console.log('Submit class: '+submit.attr('class'));
+            
             var newButton = jQuery('<button/>').attr('type','submit').attr('class', submit.attr('class')).addClass('btn').text(submit.attr('value'));
             
             if(submit.parent().is('div.clear')){
@@ -1367,7 +1407,7 @@ mr = (function (mr, $, window, document){
             var notificationID = $(this).attr('data-notification-link');
             var notification = $('body').find('.notification[data-notification-link="'+notificationID+'"]');
             notification.removeClass('notification--dismissed');
-            notification.addClass('notification--reveal');
+            mr.notifications.showNotification(notification, 0);
             return false;
         });
 
@@ -1387,9 +1427,12 @@ mr = (function (mr, $, window, document){
 
     mr.notifications.showNotification = function(notification, millisecondsDelay){
         var delay = (typeof millisecondsDelay !== typeof undefined) ? (1*millisecondsDelay) : 0;
-
         setTimeout(function(){
             notification.addClass('notification--reveal');
+            notification.closest('nav').addClass('notification--reveal');
+            if(notification.find('input').length){
+                notification.find('input').first().focus();
+            }
         },delay);
     };
 
@@ -1401,7 +1444,8 @@ mr = (function (mr, $, window, document){
                        $notification.closest('.notification') : 
                        $('body').find('.notification[data-notification-link="'+notification+'"]');
 
-        notification.addClass('notification--dismissed'); 
+        notification.addClass('notification--dismissed');
+        notification.closest('nav').removeClass('notification--reveal');
 
         // If this notification requires to be closed permanently using a cookie, set the cookie now.
         if(typeof notification.attr('data-cookie') !== typeof undefined){
@@ -1456,73 +1500,6 @@ mr = (function (mr, $, window, document){
 	  "use strict";
 	  
 	  var documentReady = function($){
-	      jQuery.fn.easyaspie = function () {
-			
-				var	size	= parseInt(this.data('size'), 10),
-					radius	= size / 2,
-					value	= parseInt(this.data('value'), 10);
-				
-				// pie all the things!
-				if (this.length > 1){
-					this.each( function() {
-						$(this).easyaspie();
-					});
-					return this;
-				}
-				
-				// is you trying to break things?
-				if (isNaN(value)) {
-					return this;
-				}
-				
-				// set the size of this
-				this.css({
-					height: size,
-					width: size
-				}).addClass('pie-sliced');
-				
-				// make value behave
-				value = Math.min(Math.max(value, 0), 100);
-
-				// make me some svg
-				this.pie = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-				
-				// if value is 100 or higher, just use a circle
-				if (value >= 100) {
-					this.pie.slice = document.createElementNS("http://www.w3.org/2000/svg", "circle");
-					this.pie.slice.setAttribute('r', radius);
-					this.pie.slice.setAttribute('cx', radius);
-					this.pie.slice.setAttribute('cy', radius);
-					
-				} else {
-					this.pie.slice = document.createElementNS("http://www.w3.org/2000/svg", "path");
-					
-					//calculate x,y coordinates of the point on the circle to draw the arc to. 
-					var x = Math.cos((2 * Math.PI)/(100/value));
-					var y = Math.sin((2 * Math.PI)/(100/value));
-					
-					//should the arc go the long way round?
-					var longArc = (value <= 50) ? 0 : 1;
-					
-					//d is a string that describes the path of the slice.
-					var d = "M" + radius + "," + radius + " L" + radius + "," + 0 + ", A" + radius + "," + radius + " 0 " + longArc + ",1 " + (radius + y*radius) + "," + (radius - x*radius) + " z";		
-					this.pie.slice.setAttribute('d', d);
-				}
-				
-				//add the slice to the pie.
-		        jQuery(this.pie.slice).appendTo(this.pie);
-				
-				// add the pie to this
-				jQuery(this.pie).appendTo(this);
-		        
-				return this;
-			};
-
-			var pieCharts = $('.piechart');
-
-			if(pieCharts.length){
-			    pieCharts.easyaspie().addClass('active');
-			}
 
 		    $('.barchart').each(function(){
 		    	var chart = $(this);
@@ -1539,6 +1516,33 @@ mr = (function (mr, $, window, document){
 	  };
 
 	  mr.piecharts = {
+	      documentReady : documentReady        
+	  };
+
+	  mr.components.documentReady.push(documentReady);
+	  return mr;
+
+}(mr, jQuery, window, document));
+
+//////////////// EasyPiecharts
+mr = (function (mr, $, window, document){
+	  "use strict";
+	  
+	  var documentReady = function($){
+	  	
+	  	$('.piechart').each(function(){
+	  		var chart = $(this),
+	  			value = chart.attr('data-value')*1;
+	  		chart.easyPieChart({
+	  			animate: 2000,
+	  			barColor: '#425cbb'
+	  		});
+	  		chart.data('easyPieChart').update(value);
+	  	});
+
+	  };
+
+	  mr.easypiecharts = {
 	      documentReady : documentReady        
 	  };
 
@@ -1584,7 +1588,7 @@ mr = (function (mr, $, window, document){
 mr = (function (mr, $, window, document){
     "use strict";
     
-    mr.slidersOwl = {};
+    mr.sliders = {};
 
     var documentReady = function($){
 
@@ -1664,13 +1668,13 @@ mr = (function (mr, $, window, document){
 
         });
 
-        mr.slidersOwl.sliders = sliders;
+        mr.sliders.sliders = sliders;
       
     };
 
-    mr.slidersOwl.documentReady = documentReady;
+    mr.sliders.documentReady = documentReady;
 
-    mr.components.documentReady.push(documentReady);
+    mr.components.documentReadyDeferred.push(documentReady);
     return mr;
 
 }(mr, jQuery, window, document));
@@ -1698,9 +1702,12 @@ mr = (function (mr, $, window, document){
                 offset = offset*1;
             }
             
-            innerLinks.smoothScroll({
-              offset: offset,
-              speed: 800
+            smoothScroll.init({
+                selector: '.inner-link',
+                selectorHeader: null,
+                speed: 750,
+                easing: 'easeInOutCubic',
+                offset: offset
             });
         }
     };
@@ -1725,8 +1732,9 @@ mr = (function (mr, $, window, document){
             tabs.find('li').each(function(){
                 var currentTab = $(this);
                 var tabContent = currentTab.find('.tab__content').wrap('<li></li>').parent();
-                tabContent.detach();
-                currentTab.closest('.tabs-container').find('.tabs-content').append(tabContent);
+                var tabContentClone = tabContent.clone(true,true);
+                tabContent.remove();
+                currentTab.closest('.tabs-container').find('.tabs-content').append(tabContentClone);
             });
         });
         
@@ -1757,7 +1765,7 @@ mr = (function (mr, $, window, document){
 //////////////// Transitions
 $(window).bind("pageshow", function(event) {
     if (event.originalEvent.persisted) {
-        window.location.reload() 
+        window.location.reload();
     }
 });
 
@@ -1765,7 +1773,7 @@ mr = (function (mr, $, window, document){
     "use strict";
     
     var documentReady = function($){
-        $('a:not([href^="#"]):not([href^="tel"]):not([href^="mailto"]):not([data-lightbox]):not([href=""]):not([target="_blank"]):not(.modal-trigger)').on('click', function(){
+        $('a:not([href^="#"]):not([href^="tel"]):not([href^="mailto"]):not([data-lightbox]):not([href=""]):not([target="_blank"]):not(.modal-trigger):not([class*="lb-"])').on('click', function(){
             $('[class*="transition--"]').removeClass('transition--active');
         });   
     };
@@ -1794,11 +1802,10 @@ mr = (function (mr, $, window, document){
         $('.tweets-feed').each(function(index) {
             $(this).attr('id', 'tweets-' + index);
         }).each(function(index) {
-           
+            var element = $('#tweets-' + index);
             var TweetConfig = {
-               "id": $('#tweets-' + index).attr('data-widget-id'),
                "domId": '',
-               "maxTweets": $('#tweets-' + index).attr('data-amount'),
+               "maxTweets": element.attr('data-amount'),
                "enableLinks": true,
                "showUser": true,
                "showTime": true,
@@ -1806,10 +1813,22 @@ mr = (function (mr, $, window, document){
                "showRetweet": false,
                "customCallback": handleTweets
             };
+
+            if(typeof element.attr('data-widget-id') !== typeof undefined){
+                TweetConfig.id = element.attr('data-widget-id');
+            }else if(typeof element.attr('data-feed-name') !== typeof undefined){
+                TweetConfig.profile = {"screenName": element.attr('data-feed-name')};
+            }else{
+                TweetConfig.profile = {"screenName": 'twitter'};
+            }
+
+            if(element.closest('.twitter-feed--slider').length){
+                element.addClass('slider');
+            }
+
             function handleTweets(tweets) {
                 var x = tweets.length;
                 var n = 0;
-                var element = $('#tweets-' + index);
                 var html = '<ul class="slides">';
                 while (n < x) {
                     html += '<li>' + tweets[n] + '</li>';
@@ -1819,18 +1838,8 @@ mr = (function (mr, $, window, document){
                 element.html(html);
                 
                 // Initialize twitter feed slider
-                if(element.closest('.twitter-feed--slider').length){
-                    
-                    var slider = element.find('ul.slides');
-                    slider.owlCarousel({
-                        nav: false,
-                        dots: false,
-                        items: 1,
-                        autoplay: true,
-                        autoplayTiming: 5000,
-                        center: true,
-                        responsive: false
-                    });
+                if(element.closest('.slider').length){
+                    mr.sliders.documentReady(mr.setContext());
                      
                     return html;
                 }
