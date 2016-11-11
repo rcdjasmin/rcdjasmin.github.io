@@ -602,6 +602,8 @@ img {
   opacity: 0;
   background: #232323;
 }
+
+
 .background-image-holder:not([class*='col-']) {
   width: 100%;
 }
@@ -611,6 +613,12 @@ img {
 .background-image-holder.background--top {
   background-position: 50% 0% !important;
 }
+
+.background-image-holder.background--right {
+  background-position: 0% 50% !important;
+}
+
+
 .image--light .background-image-holder {
   background: none;
 }
@@ -678,7 +686,10 @@ img {
   opacity: 0.9;
 }
 
-
+[data-overlay="39"]:before {   /*blue overlay*/
+  background: #37475E;
+  opacity: 0.8;
+}
 [data-scrim-bottom] {
   position: relative;
 }
@@ -8264,5 +8275,5 @@ section[class*='elements-'] hr + .row {
 }
 
 .playfair {
-  font-family: 'Playfair Display', Georgia, Times New Roman, serif !important;  
+  font-family: 'Playfair Display', Georgia, Times New Roman, serif !important;
 }
