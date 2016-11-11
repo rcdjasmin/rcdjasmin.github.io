@@ -8277,3 +8277,7 @@ section[class*='elements-'] hr + .row {
 .playfair {
   font-family: 'Playfair Display', Georgia, Times New Roman, serif !important;
 }
+
+.enadoc365-wireframe:before {
+  background:#E9F6FF !important;
+}
