@@ -8262,3 +8262,7 @@ section[class*='elements-'] hr + .row {
   background: #E38659 !important;
   border-color: #E38659 !important;
 }
+
+.playfair {
+  font-family: 'Playfair Display', Georgia, Times New Roman, serif !important;  
+}
