@@ -7321,7 +7321,7 @@ section:first-of-type.imagebg + .masonry-contained {
   }
   .testimonial-3 .testimonial__text {
     margin-top: 0;
-    margin-bottom: 3.25em;
+    /*margin-bottom: 3.25em;*/
   }
 }
 .testimonial-4 h3 {
@@ -8285,4 +8285,26 @@ section[class*='elements-'] hr + .row {
 
 .custom-testimonial:before {
   background: #082340 !important;
+}
+
+@media all and (min-width: 767px) {
+
+  .custom-testimonial p {
+    padding-bottom:4em;
+  }
+
+}
+
+@media all and (max-width: 1200px) {
+
+  .custom-testimonial {
+    background-color:#082340 !important;
+  }
+
+}
+
+@media all and (max-width: 767px) {
+  .custom-testimonial h3 {
+    padding-top:1.5em;
+  }
 }
