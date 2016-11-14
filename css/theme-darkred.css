@@ -8281,3 +8281,8 @@ section[class*='elements-'] hr + .row {
 .enadoc365-wireframe:before {
   background:#E9F6FF !important;
 }
+
+
+.custom-testimonial:before {
+  background: #082340 !important;
+}
