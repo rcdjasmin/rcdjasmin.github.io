@@ -3640,7 +3640,6 @@ span.label {
 }
 .menu > li a {
   color: #232323;
-  text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 500;
   transition: 0.2s linear;
