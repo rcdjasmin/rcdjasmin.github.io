@@ -690,6 +690,11 @@ img {
   background: #37475E;
   opacity: 0.8;
 }
+
+[data-overlay="48"]:before {   /*orange overlay*/
+  background: #E8A433;
+  opacity: 0.8;
+}
 [data-scrim-bottom] {
   position: relative;
 }
