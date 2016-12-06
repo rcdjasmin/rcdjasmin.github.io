@@ -15,9 +15,9 @@ html{
 }
 
 /* width from 400 px to 599 pixels*/
-@media screen and (min-width: 400px){
+@media screen and (min-width:375px){
   .main-content{
-    max-width:  400px !important;
+    max-width:  375px !important;
   }
 }
 
