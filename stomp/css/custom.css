@@ -1,0 +1,70 @@
+html{
+  /* rem for the scaling */
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.main-content{
+  width: 100%;
+  min-width: 320px !important;
+  /*background-color: #efefef;*/
+  margin: auto;
+  padding: 10px;
+  font-family: 'PT Sans', sans-serif;
+}
+
+/* width from 400 px to 599 pixels*/
+@media screen and (min-width: 400px){
+  .main-content{
+    max-width:  400px !important;
+  }
+}
+
+/* minimum width of 600 pixels*/
+@media screen and (min-width: 600px){
+  .main-content{
+    max-width: 600px !important;
+  }
+}
+
+
+.news-card{
+  min-height: 6.5rem;
+  position: relative;
+  margin: 10px 0;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.4);
+}
+.news-card .news-thumbnail{
+  min-height: 1.25rem;
+  height: 100%;
+  background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #e2e2e2;
+    position: absolute;
+}
+
+.news-cat {
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-transform: uppercase;
+
+}
+
+/* news thumbnail */
+#news1 .news-thumbnail{
+  background-image: url('http://images.fonearena.com/blog/wp-content/uploads/2013/11/Lenovo-p780-camera-sample-10.jpg');
+}
+#news2 .news-thumbnail{
+  background-image: url('http://i-cdn.phonearena.com/images/articles/47012-image/photo2.jpg');
+}
+#news3 .news-thumbnail{
+  background-image: url('http://imgsv.imaging.nikon.com/lineup/lens/zoom/normalzoom/af-s_nikkor28-300mmf_35-56gd_ed_vr/img/sample/sample4_l.jpg');
+}
+#news4 .news-thumbnail{
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/16/HDRI_Sample_Scene_Balls_(JPEG-HDR).jpg');
+}
