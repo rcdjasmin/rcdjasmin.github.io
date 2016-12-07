@@ -17,10 +17,10 @@ html{
 /*width from 400 px to 599 pixels*/
 @media screen and (min-width:375px){
   .main-content{
-    max-width:  375px !important;
+    max-width:  450px !important;
   }
   .mini {
-    max-width: 375px;
+    max-width: 450px;
     margin: auto;
   }
 
@@ -29,10 +29,10 @@ html{
 /* minimum width of 600 pixels*/
 @media screen and (min-width: 600px){
   .main-content{
-    max-width: 600px !important;
+    max-width: 750px !important;
   }
   .mini {
-    max-width: 600px;
+    max-width: 750px;
     margin: auto;
   }
 }
@@ -79,7 +79,6 @@ html{
   border-radius: 3px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
-/*  box-shadow: 2px 2px 7px 1px rgba(0, 0, 0, 0.4);*/
 }
 .news-card .news-thumbnail{
   min-height: 1.25rem;
@@ -147,15 +146,7 @@ html{
 .load {
   margin:auto;
 }
-/*
-.featured-article {
-  padding-top: 55px;
-  background-image: url('http://img.stomp.com.sg/s3fs-public/styles/article_detail_fi_breakpoints_theme_bootstrap_screen-sm-min_1x/public/images/2016/12/whatsapp-app-logo_1.jpg?itok=ZTTVFMjb');
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-  height: 350px;
-  margin-bottom: 10px;
-}*/
+
 .main-btn {
   color: #F85E0A;
   background-color: rgba(255,255,255,0.6);
@@ -164,9 +155,9 @@ html{
   border-color: #F85E0A;
 }
 
-.main-btn:hover {
-  color: #F8360A;
-  border-color: #F8360A;
+.main-btn:hover, .main-btn:active {
+  color: #C13717;
+  border-color: #C13717;
 }
 /* news thumbnail */
 #news1 .news-thumbnail{
