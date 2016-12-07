@@ -60,6 +60,7 @@ html{
   float: left;
   list-style: none;
   margin-top: 15px;
+  font-size: 1rem;
 }
 
 .social-links a {
