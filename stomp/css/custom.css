@@ -40,6 +40,37 @@ html{
 .navbar-brand {
   padding-top:0;
 }
+
+.navbar-btn {
+  border-color: #646464;
+  text-transform: uppercase;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+  font-size: 0.8rem;
+  background-color: rgba(0,0,0,0);
+}
+
+.navbar-btn:hover {
+  border-color: #F85E0A;
+  color:#F85E0A;
+  background-color: rgba(0,0,0,0);
+}
+
+.social-links li {
+  float: left;
+  list-style: none;
+  margin-top: 15px;
+}
+
+.social-links a {
+  color: rgba(0,0,0,0.3);
+  padding: 15px;
+}
+
+.social-links a:hover {
+  color: rgba(0,0,0,0.6);
+}
+
 .news-card{
   min-height: 6.5rem;
   position: relative;
@@ -86,7 +117,7 @@ html{
 }
 
 .section-title {
-  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQYV2NkQAOMUP5/BgYGMBsmAFeHIQAAK+oBBROgPJEAAAAASUVORK5CYII=) repeat;
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQYV2NkwAIYQWI/4rj+cyz6BmaDAJyBrIF4QQAxLwQGIoTxtQAAAABJRU5ErkJggg==) repeat;
   margin-right: 0px;
 }
 .section-title header {
@@ -97,10 +128,45 @@ html{
 }
 .section-title span {
   background-color:#fff;
-  padding: 15px;
+  padding-right: 15px;
+  padding-left: 15px;
 }
 .featured-article {
   padding-top: 55px;
+  height: 350px;
+  margin-bottom: 10px;
+}
+#feat {
+  position: relative;
+}
+.featured-title {
+  position: absolute;
+  z-index: 2;
+}
+
+.load {
+  margin:auto;
+}
+/*
+.featured-article {
+  padding-top: 55px;
+  background-image: url('http://img.stomp.com.sg/s3fs-public/styles/article_detail_fi_breakpoints_theme_bootstrap_screen-sm-min_1x/public/images/2016/12/whatsapp-app-logo_1.jpg?itok=ZTTVFMjb');
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+  height: 350px;
+  margin-bottom: 10px;
+}*/
+.main-btn {
+  color: #F85E0A;
+  background-color: rgba(255,255,255,0.6);
+  border-radius: 0;
+  border-width: 1px;
+  border-color: #F85E0A;
+}
+
+.main-btn:hover {
+  color: #F8360A;
+  border-color: #F8360A;
 }
 /* news thumbnail */
 #news1 .news-thumbnail{
@@ -114,4 +180,15 @@ html{
 }
 #news4 .news-thumbnail{
   background-image: url('https://upload.wikimedia.org/wikipedia/commons/1/16/HDRI_Sample_Scene_Balls_(JPEG-HDR).jpg');
+}
+
+/*categories*/
+h4 .crimes {
+  color: #990001;
+}
+h4 .crimes {
+  color: #990001;
+}
+h4 .singapore {
+  color: #0066CC;
 }
