@@ -1,28 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta name="viewport" content="initial-scale=1,width=device-width">
+
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
 	<title>Stomp Mobile</title>
+
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Sans:400,400i,700" rel="stylesheet">
 	<link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet"href="css/scrolling-nav.css">
+  <link rel=”stylesheet” id=”font-awesome-css” href=”css/font-awesome.min.css” type=”text/css” media=”screen”>
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700|PT+Sans:400,400i,700" rel="stylesheet">
+
 </head>
-<body>
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 	<div class="wrapper">
 		<div class="main-content">
+      <!---utility bar------------->
 
-      <!--news items-->
-			<section class="news-section">
+      <!---nav bar------------->
+      <section class="top-section">
+      <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+
+          <a class="navbar-brand page-scroll" href="#page-top">
+              <img src="http://img.stomp.com.sg/sites/all/themes/stomp/stomp-logo.svg" height="50" width="80" alt="Stomp" />
+          </a>
+
+          <button type="button" class="btn btn-default navbar-btn"><i class="fa fa-address-book-o" aria-hidden="true"></i>Contribute</button>
+      </nav>
+
+    </section>
+
+
+      <!---news items------------->
+			<section class="news-section" style="padding-top: 40px;">
 
         <!--begin article-->
 				<article class="card news-card clearfix" id="news1">
-					<a href="facebook.com">
+					<a href="#">
 
           <div class="news-thumbnail col-xs-4 col-sm-5" ></div>
 
         <header class="news-header col-xs-8 col-sm-7 col-xs-offset-4 col-sm-offset-5">
-						<h4 class="news-cat"><a href="twitter.com" style="color:#990001;">Courts & Crime</a></h4>
+						<h4 class="news-cat"><a href="#" style="color:#990001;">Courts & Crime</a></h4>
 						<h3 class="news-title"><a href="#">Injured cyclist gets $8.65m damages in record payout, down from $26m sought</a></h3>
 						<p class="news-detail">1 hr ago &nbsp; &#8212; &nbsp; <a href="#">Share</a></p>
 					</header>
@@ -37,7 +59,7 @@
 
 					<header class="news-header col-xs-8 col-sm-7 col-xs-offset-4 col-sm-offset-5">
 						<h4 class="news-cat"><a href="#" style="color:#0066CC;">Singapore</a></h4>
-						<h3 class="news-title">Round of applause for this driver's 'superb' parking skills at Bishan St 22</h3>
+						<h3 class="news-title"><a href="#">Round of applause for this driver's 'superb' parking skills at Bishan St 22</a></h3>
 						<p class="news-detail">4 hrs ago &nbsp; &#8212; &nbsp; <a href="#">Share</a></p>
 					</header>
 					</a>
@@ -51,7 +73,7 @@
 
         <header class="news-header col-xs-8 col-sm-7 col-xs-offset-4 col-sm-offset-5">
 						<h4 class="news-cat"><a href="#" style="color:#990001;">Courts & Crimes</a></h4>
-						<h3 class="news-title">60-year-old man attacks woman with umbrella on MRT for making noises with plastic cup</h3>
+						<h3 class="news-title"><a href="#">60-year-old man attacks woman with umbrella on MRT for making noises with plastic cup</a></h3>
 						<p class="news-detail">Dec. 1, 2016  &nbsp; &#8212; &nbsp; <a href="#">Share</a></p>
 					</header>
 					</a>
@@ -59,6 +81,12 @@
 
 			</section>
       <!--end of news items-->
+
+      <!--popular topics-->
+      <section class="popular-topics">
+        <h1 class="section-title"><span>Popular Topics</span></header>
+      </section>
+
 		</div>
 	</div>
 </body>
