@@ -156,9 +156,31 @@ html{
   border-color: #F85E0A;
 }
 
-.main-btn:hover, .main-btn:active {
+.main-btn:hover {
   color: #C13717;
   border-color: #C13717;
+}
+
+.popular-topics {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAHklEQVQYV2NkQAOMIP7FixfP6Ovrm4DYYAFkgCEAAK/qBAVE92AoAAAAAElFTkSuQmCC) repeat;
+  padding:15px;
+}
+
+.popular-topics .main-btn {
+  margin-top: 15px;
+  margin-right: 15px;
+  padding: 0.5rem 0.8rem;
+}
+
+.popular-topics header {
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.popular-topics span {
+  background-color: #fff;
 }
 /* news thumbnail */
 #news1 .news-thumbnail{
