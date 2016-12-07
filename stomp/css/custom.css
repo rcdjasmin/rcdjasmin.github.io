@@ -99,10 +99,20 @@ html{
 }
 
 .featured-header {
-  positon: absolute;
+  position: absolute;
   bottom: 30px;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: bold;
+}
+
+.featured-header span{
+  background-color: #990001;
+  font-size: 0.85rem;
+  padding: 0.5rem;
+  text-transform: uppercase;
+  font-family: 'PT Sans Narrow', sans-serif;
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 .featured-header a {
@@ -110,7 +120,8 @@ html{
 }
 
 .featured-header a:hover {
-  color: rgba(255,255,255,0.5);
+  color: #fff;
+  text-decoration: none;
 }
 
 
