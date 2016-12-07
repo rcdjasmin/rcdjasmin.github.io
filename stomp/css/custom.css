@@ -19,12 +19,21 @@ html{
   .main-content{
     max-width:  375px !important;
   }
+  .mini {
+    max-width: 375px;
+    margin: auto;
+  }
+
 }
 
 /* minimum width of 600 pixels*/
 @media screen and (min-width: 600px){
   .main-content{
     max-width: 600px !important;
+  }
+  .mini {
+    max-width: 600px;
+    margin: auto;
   }
 }
 
@@ -76,15 +85,16 @@ html{
   margin-bottom: 15px;
 }
 
-.popular-topics {
-  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQYV2NkQAOMUP5/BgYGMBsmAFeHIQAAK+oBBROgPJEAAAAASUVORK5CYII=) repeat;
-}
 .section-title {
+  background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAGklEQVQYV2NkQAOMUP5/BgYGMBsmAFeHIQAAK+oBBROgPJEAAAAASUVORK5CYII=) repeat;
+  margin-right: 0px;
+}
+.section-title header {
   font-size: 0.95rem;
   line-height: 1.25rem;
+  font-weight: bold;
 
 }
-
 .section-title span {
   background-color:#fff;
   padding: 15px;
