@@ -99,6 +99,9 @@ html{
   background-color:#fff;
   padding: 15px;
 }
+.featured-article {
+  padding-top: 55px;
+}
 /* news thumbnail */
 #news1 .news-thumbnail{
   background-image: url('http://img.stomp.com.sg/s3fs-public/styles/article_detail_fi_breakpoints_theme_bootstrap_screen-lg-min_1x/public/images/2016/12/collision-main.jpg?itok=BgUXZoGu');
