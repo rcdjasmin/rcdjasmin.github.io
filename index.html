@@ -36,13 +36,6 @@
                 flex-wrap: wrap;
             }
         }
-        hr {
-            box-sizing: content-box;
-            height: 0;
-            border-top: 1px solid #eeeeee;
-            border-color: #ebebeb;
-            margin: 30px 0;
-        }
         p, p strong {
             color: rgba(0,0,0,0.7);
             line-height: 1.5;
@@ -52,6 +45,36 @@
         }
         a {
             color:#F89769;
+        }
+        @keyframes animateUp {
+            from {
+                transform: translateY(10px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0px);
+                opacity: 1;
+            }
+        }
+        h1, p {
+            animation: animateUp 650ms ease;
+            animation-fill-mode: forwards;
+        }
+        p {
+            transform: translateY(10px);
+            opacity: 0;
+        }
+        p:first-child {
+            animation-delay: 100ms;
+        }
+        p:nth-child(2) {
+            animation-delay: 200ms;
+        }
+        p:nth-child(3) {
+            animation-delay: 300ms;
+        }
+        p:last-child {
+            animation-delay: 400ms;
         }
         </style>
 
