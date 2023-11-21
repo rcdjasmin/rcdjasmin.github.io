@@ -77,9 +77,13 @@ h1 a {
   font-weight: 500;
 }
 
-h5 strong {
+strong {
   font-weight: 400;
   color: #000000;
+}
+
+h1 strong {
+  font-weight: 500;
 }
 
 a:hover {
