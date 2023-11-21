@@ -1,0 +1,242 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400&family=IBM+Plex+Sans:wght@300;400;500&display=swap');
+
+body {
+  margin: 0;
+  padding: 20px;
+  padding-top: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-weight: 400;
+  background-color: #FFF9EF;
+  position: relative;
+}
+
+nav {
+  padding: 8px;
+  position: sticky;
+  top: 0;
+  background-color: #FFF9EF;
+  z-index: 2;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+  padding: 16px;
+  font-family: 'IBM Plex Mono', monospace;
+}
+
+h1, h2, h3, h4, h5, p, a {
+  margin: 0;
+  color: #000000;
+}
+
+:focus {
+  outline: 2px solid #716552;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 36px;
+  margin-bottom: 16px;
+}
+
+h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+
+h5 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-weight: 400;
+  font-size: 16px;
+  margin-bottom: 32px;
+  color: #716552;
+}
+
+p {
+  font-size: 21px;
+  font-weight: 300;
+}
+
+h5 strong {
+  font-weight: 400;
+  color: #000000;
+}
+
+a:hover {
+  color: #716552;
+}
+
+section.about-me {
+  max-width: 870px;
+  margin: 20vh auto;
+}
+
+.center-container {
+  max-width: 870px;
+  margin: 0 auto;
+}
+
+.row-work {
+  max-width: 1180px;
+  margin: 8vh auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.row-item {
+  flex: 0 0 calc(50% - 20px);
+  box-sizing: border-box;
+}
+
+.row-item.content {
+  padding: 0 44px;
+}
+
+.thumbnail {
+  height: 380px;
+  width: 100%;
+  background-color: #D6E5F7;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.thumbnail img {
+    width: 100%;
+    max-width: 390px;
+}
+
+.case-study-link {
+  display: inline-block;
+  margin-top: 24px;
+  position: relative;
+  padding-left: 24px;
+}
+
+.case-study-link::before {
+  content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="18px" height="18px"><path d="M15 2C11.145666 2 8 5.1456661 8 9L8 11L6 11C4.895 11 4 11.895 4 13L4 25C4 26.105 4.895 27 6 27L24 27C25.105 27 26 26.105 26 25L26 13C26 11.895 25.105 11 24 11L22 11L22 9C22 5.2715823 19.036581 2.2685653 15.355469 2.0722656A1.0001 1.0001 0 0 0 15 2zM15 4C17.773666 4 20 6.2263339 20 9L20 11L10 11L10 9C10 6.2263339 12.226334 4 15 4z"/></svg>');
+  position: absolute;
+  left: 0;
+  top: calc(50% + 2px);
+  transform: translateY(-50%);
+}
+
+.row-work:nth-child(odd) .thumbnail {
+  background-color: #C4DFD1;
+  order: 2;
+}
+
+.grid-work {
+  display: flex;
+  max-width: 1120px;
+  margin: 40px auto;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.grid-work .thumbnail {
+  margin-bottom: 20px;
+  background-color: #F9F0E1;
+}
+
+.grid-work .title {
+  margin-bottom: 4px;
+}
+
+.grid-work p {
+  font-size: 16px;
+  margin: 0;
+}
+
+nav a,
+.about-me a,
+.grid-item a {
+  text-decoration: none;
+}
+
+.grid-item a:hover h2,
+.grid-item a:hover p {
+  color: #716552;
+}
+
+.grid-item {
+  margin-bottom: 40px;
+  flex: 0 0 calc(50% - 20px);
+}
+
+
+section.get-in-touch {
+  max-width: 870px;
+  margin: 40vh auto;
+}
+
+.get-in-touch p {
+  margin-bottom: 8px;
+}
+
+.get-in-touch .label {
+  font-weight: 500;
+  display: inline-block;
+  width: 100px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 16px;
+}
+
+
+@media (max-width: 769px) {
+  nav {
+    padding: 0;
+  }
+  nav li {
+    padding: 16px 0;
+  }
+  .row-work {
+    display: block;
+    margin: 4vh auto;
+  }
+  .row-work .thumbnail {
+    margin-bottom: 20px;
+  }
+  .row-item.content {
+  padding: 0;
+  }
+  .content {
+    margin: 0;
+  }
+  .grid-item {
+    flex: 0 0 100%;
+  }
+  .get-in-touch p {
+    font-size: 16px;
+  }
+  .get-in-touch .label {
+    width: 80px;
+  }
+  section.get-in-touch {
+    margin: 20vh auto;
+  }
+}
