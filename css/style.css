@@ -72,6 +72,11 @@ p {
   font-weight: 300;
 }
 
+h1 a {
+  color: #000000;
+  font-weight: 500;
+}
+
 h5 strong {
   font-weight: 400;
   color: #000000;
@@ -171,7 +176,8 @@ section.about-me {
 
 nav a,
 .about-me a,
-.grid-item a {
+.grid-item a,
+.get-in-touch a {
   text-decoration: none;
 }
 
