@@ -212,6 +212,14 @@ footer p {
   font-size: 16px;
 }
 
+.masthead {
+    text-align: center;
+    margin: 12vh 0 2vh 0;
+}
+.masthead h1, .masthead h5 {
+    margin: 20px auto;
+}
+
 
 @media (max-width: 769px) {
   nav {
