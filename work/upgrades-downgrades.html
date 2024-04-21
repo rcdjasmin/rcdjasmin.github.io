@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seamless upgrading and downgrading flows | Celena Jasmin, Product Designer</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/project-page.css" rel="stylesheet">
+    <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="../images/webclip.png" rel="apple-touch-icon">
+    <style>
+        .video-container {
+          position: relative;
+          padding-bottom: 56.25%; /* 16:9 aspect ratio, adjust as needed */
+          height: 0;
+          overflow: hidden;
+          background-color: #ffffff;
+        }
+    
+        .video-container video {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+
+        video {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .has-inset-border:before {
+            content: " "; /* to ensure it displays */
+            position: absolute;
+            left: 5px;
+            right: 8px;
+            top: 0;
+            bottom: 4px;
+            border: 2px solid #ffffff;
+            border-width: 0 0 2px 0;
+            pointer-events: none; /* user can't click on it */    
+        }
+      </style>
+  </head>
+  <body>
+    <nav>
+        <ul>
+        <li><a href="../index.html">CELENA JASMIN</a></li>
+        <li>
+          <a href="mailto:celenajasmin@gmail.com">celenajasmin@gmail.com</a>
+        </li>
+    </nav>
+    <main class="project">
+    <section>
+        <div class="masthead">
+            <h5><strong>2023</strong> ✴ UX/UI design, User research and testing</h5>
+            <h1>Seamless upgrading and downgrading flows</h1>
+            <br>
+            <div class="has-inset-border" style="position:relative; max-width:1110px; margin: 0 auto;">
+                <video autoplay="" muted="" loop="" playsinline="" class=""><source src="../videos/upgrade-downgrade-video-celenajasmin.mp4" type="video/mp4"></video>
+            </div>
+        </div>
+        </section>
+        <section class="center-container v-space">
+        <h5>01 <strong>Background</strong></h5>
+        <p>Commerce is a new feature that allowed business owners who sell products on sales channels like Amazon or Shopify to manage their inventory in QuickBooks.</p>
+        <br>
+        <p>Exclusive to Plus and Advanced plan subscribers, this project marks its first release to paying customers, so it was critical to address the following scenarios:</p>
+        <ul>
+            <li><strong>Downgrading:</strong> When users switch to lower plans, they lose access to our feature. We must ensure seamless offboarding without data loss or disruptions to their books.</li>
+            <li><strong>Upgrading:</strong> Subscribers on higher plans should have the option to use the new feature, but we needed to build a mechanism for enabling or disabling it.</li>
+        </ul>
+    </section>
+
+    <section class="center-container v-space">
+        <h5>02 <strong>Team</strong></h5>
+        <p>
+        1 x product manager<br>
+        1 x tech lead<br>
+        1 x product designer<br>
+        3 x software engineers<br>
+        </p>
+        <br>
+        <p>While the core team remained lean, the challenge was working with 6 other teams, scattered across 4 countries.</p>
+
+    </section>
+    <section class="v-space">
+        <div class="center-container">
+            <h5>03 <strong>Audit</strong></h5>
+            <p>Since it’s a QuickBooks feature, we didn’t need to start from scratch. Instead, we conducted an in-app audit to understand existing subscription flows.</p>
+        </div>
+        <figure>
+            <img src="../images/upgrade-downgrade-audit@2x.png" style="max-width:1110px;">
+            <figcaption>Audit of existing upgrade/downgrade and other relevant flows in QuickBooks</figcaption>
+        </figure>
+        <div class="center-container">
+            <p>We didn’t want to deviate significantly from these since users are accustomed to these flows. This approach has an added benefit of reducing development effort.</p>
+        </div>
+    </section>
+    <section class="center-container v-space">
+        <h5>04 <strong>Collaboration</strong></h5>
+        <p>In addition to technical complexities, we had to collaborate efficiently with other teams. To facilitate this, I created flowcharts progressing from plain text to visual user journey maps and wireframes.</p>
+        <figure>
+            <img src="../images/upgrade-downgrade-ux-flows@2x.png">
+            <figcaption>Mapping the different flows and sharing to different teams to establish alignment</figcaption>
+        </figure>
+        <figure>
+            <img src="../images/upgrades-downgrades-wireframes@2x.jpg">
+            <figcaption>Low-fidelity wireframes allowed us to iterate quickly</figcaption>
+        </figure>
+        <br>
+    </section>
+    <section class="v-space">
+        <div class="center-container">
+            <h5>05 <strong>Design solutions</strong></h5>
+            <h2>Upgrading and enabling inventory tracking</h2>
+            <p>After aligning our approach, ideation began. One focus was enabling higher plan users to access the new feature, requiring a toggle mechanism. Due to a technical limitation, users had to enable the feature for all channels or none, leading us to place the control in Account Settings temporarily.</p>
+
+            <br>
+            <p>Though this cut down on engineering work, it posed the challenge of distinguishing it from the existing inventory management feature, prompting exploration of various solutions:</p>
+
+            <figure>
+                <img src="../images/upgrades-downgrades-toggle-options@2x.jpg" style="max-width:1110px;">
+                <figcaption>While the ideal state is the first option, we went with third option as we didn’t have enough controls to warrant a separate page yet</figcaption>
+            </figure>
+        </div> 
+
+        <figure>
+            <img src="../images/upgrade-screens@2x.png" style="max-width:1110px;">
+            <figcaption>Enabling inventory tracking for sales channels</figcaption>
+        </figure>
+        <div class="center-container">
+            <br>
+            <h2>Downgrading and disabling inventory tracking</h2>
+            <p>Another area of focus is around downgrading to lower plans, ensuring that users can get offboarded without losing data and causing unexpected disruptions to their books.</p>
+            <br>
+            <p>In this flow, we tried to minimize the friction, and focus on the bare minimum that users need to do before moving to their desired plan.</p>
+        </div>    
+            <figure>
+                <img src="../images/downgrade-screens-arrows@2x.png" style="max-width:1110px;">
+                <figcaption>Disabling inventory tracking for sales channels during downgrade</figcaption>
+            </figure> 
+        <div class="center-container">
+            <h2>Audit log and email notification</h2>
+            <p>Early on in our discovery research, we recognized a need for businesses with multiple team members to track when inventory tracking is enabled or disabled by others.</p>
+            <br>
+            <p>To address this, we proposed updating the audit log and sending email notifications to all admin users whenever the toggle is changed.</p>
+            <figure>
+                <img src="../images/upgrade-downgrade-audit log-email@2x.jpg">
+                <figcaption>Updates to audit log and email notification</figcaption>
+            </figure>
+        </div> 
+    </section>
+
+    <section class="center-container v-space">
+        <h5>07 <strong>Results</strong></h5>
+        <p>Despite facing technical limitations and navigating cross-geographical collaboration hurdles, we successfully launched the upgrade/downgrade flows on schedule, and the new feature was effectively rolled out to our paying users.</p>
+        <br>
+        <p>If given the chance I would keep track of:</p>
+        <ul>
+            <li>number of Commerce users who upgrade or downgrade successfully contacting support</li>
+            <li>support tickets from users who toggled inventory tracking for sales channels on or off</li>
+        </ul>
+    </section>
+
+    <section class="masthead">
+        <p><a href="../index.html">Back to all projects</a></p>
+    </section>
+    </main>
+  </body>
+</html>
