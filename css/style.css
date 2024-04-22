@@ -119,6 +119,15 @@ section.about-me {
   flex-wrap: wrap;
 }
 
+.row-work a {
+  text-decoration: none;
+}
+
+.row-work a:focus {
+  outline: 0;
+}
+
+
 .row-item {
   flex: 0 0 calc(50% - 20px);
   box-sizing: border-box;
