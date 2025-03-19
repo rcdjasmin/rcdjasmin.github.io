@@ -290,3 +290,13 @@ figcaption {
     margin: 20vh auto;
   }
 }
+
+p.small, p.small > a {
+  font-size: 16px;
+}
+
+p.small > a {
+  text-decoration: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: rgba(0,0,0,0.3);
+}
