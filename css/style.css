@@ -299,3 +299,13 @@ p.small > a {
   text-decoration-style: dotted;
   text-decoration-color: rgba(0,0,0,0.3);
 }
+
+.lottie-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    max-width: 1140px;
+    margin: 0 auto;
+    gap: 32px;
+}
