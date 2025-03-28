@@ -171,7 +171,6 @@ section.about-me {
 }
 
 .row-work:nth-child(odd) .thumbnail {
-  background-color: #C4DFD1;
   order: 2;
 }
 
