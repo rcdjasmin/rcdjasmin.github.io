@@ -304,11 +304,11 @@ p.small > a, .subtle-link {
   max-width: 1140px;
   margin: 0 auto;
 }
+
 .video-container video {
   width: 100%;
   height: auto;
 }
-
 
 .lottie-row {
   display: flex;
