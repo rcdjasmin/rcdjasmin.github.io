@@ -294,18 +294,49 @@ p.small, p.small > a {
   font-size: 16px;
 }
 
-p.small > a {
+p.small > a, .subtle-link {
   text-decoration: underline;
   text-decoration-style: dotted;
   text-decoration-color: rgba(0,0,0,0.3);
 }
 
-.lottie-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-    max-width: 1140px;
-    margin: 0 auto;
-    gap: 32px;
+.video-container {
+  max-width: 1140px;
+  margin: 0 auto;
 }
+.video-container video {
+  width: 100%;
+  height: auto;
+}
+
+
+.lottie-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1140px;
+  margin: 0 auto;
+  gap: 20px;
+  height: 500px;
+}
+
+.lottie-row > .lottie-container {
+  width: 100%;
+  height: 100%;
+  background-color: #F9F0E1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+@media (max-width: 769px) {
+    .lottie-row {
+      flex-direction: column;
+      height: unset;
+    }
+    .lottie-row > .lottie-container {
+      height: auto;
+    }
+}
+
