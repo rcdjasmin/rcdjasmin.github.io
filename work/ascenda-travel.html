@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building a better flight search experience | Celena Jasmin, Product Designer</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/project-page.css" rel="stylesheet">
+    <link href="../css/ascenda-filters-phone-mockup.css" rel="stylesheet">
+    <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="../images/webclip.png" rel="apple-touch-icon">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <style>
+      .project h2 {
+        font-size: 28px;
+      }
+      p.text-md {
+        font-size: 16px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .section-number {
+        color: #928570;
+      }
+      .project img.mb-0 {
+        margin-bottom: 0;
+      }
+      .airport-group-container {
+        max-width: 1140px;
+        margin: 20px auto;
+        display: flex;
+        gap: 40px;
+        align-items: stretch;
+      }
+      .airport-group-item.desktop {
+        max-width: 750px;
+        background-color: #F9F0E1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        padding: 40px 0 40px 40px;
+      }
+      .airport-group-item img {
+        width: 100%;
+        height: auto;
+      }
+      .airport-group-item.mobile {
+        background-image: url('../images/airport-bg.jpg');
+        background-size: cover;
+        padding: 60px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .latency-section {
+        background-color: #272727;
+        padding: 112px;
+        margin: 0 -20px;
+      }
+      .latency-section p,
+      .latency-section h2,
+      .latency-section li,
+      .latency-section strong {
+        color: white;
+      }
+      .filters-before-after {
+        background-color: #F9F0E1;
+        padding: 80px;
+      }
+      nav {
+        margin: 0 -20px;
+        z-index: 3;
+      }
+      .video-background {
+        background-image: url('../images/flight-latency-bg.jpg');
+        padding: 60px 85px;
+        background-size: cover;
+      }
+      .video-container {
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      .video-container video {
+        width: 100%;
+        height: auto;
+      }
+      .latency-after-container {
+        display: flex;
+        gap: 32px;
+      }
+      @media (max-width: 769px) {
+        .airport-group-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+        .airport-group-item.mobile {
+          height: auto;
+          padding: 30px;
+        }
+        .airport-group-item.mobile img {
+          max-width: 220px;
+        }
+        .filters-before-after {
+          background-color: #F9F0E1;
+          padding: 40px;
+        }
+        .latency-section {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        nav {
+          padding-left: 8px;
+          padding-right: 8px;
+        }
+        .video-background {
+          padding: 20px;
+        }
+        .latency-after-container {
+          flex-direction: column;
+          gap: 20px;
+        }
+      }
+      
+    </style>
+  </head>
+  <body>
+    <nav>
+        <ul>
+          <li><a href="../index.html">CELENA JASMIN</a></li>
+        <li>
+          <a href="mailto:celenajasmin@gmail.com">celenajasmin@gmail.com</a>
+        </li>
+    </nav>
+    <main class="project flights">
+        <div class="masthead">
+            <img src="../images/rc-travel@2x.jpg" style="max-width: 1140px;">
+            <h5><strong>2025</strong></h5>
+            <h1>Building a better flight search experience</h1>
+        </div>
+        <section class="center-container v-space">
+            <p>Ascenda’s travel team brings flight, hotel, and rental car bookings for loyalty programs run by banks and fintechs worldwide. Flights see the highest usage, and since joining, I’ve helped launch several improvements and quick wins for this experience.</p><br>
+            <p>Note: some details have been omitted for brevity and confidentiality. Please get in touch for a more detailed case study.</p><br>
+        </section>
+        <section class="center-container v-space">
+            <h2><span class="section-number">01</span> Airport grouping</h2>
+            <p>As we expanded into the US market where major cities often have multiple airports, we’ve made it possible for users to search flights by city instead of just a specific airport.</p><br>
+        </section>
+        <section>
+          <div class="airport-group-container">
+                <div class="airport-group-item desktop">
+                  <img src="../images/airport-grouping-desktop@2x.png" class="mb-0">
+                </div>
+                <div class="airport-group-item mobile">
+                  <img src="../images/airport-grouping-filters@2x.png">
+                </div>
+          </div>
+          <div class="center-container">
+            <p class="text-md text-center">Result: Feature adaptation sits at 11%, and users who search by city converted better than average.</p>
+          </div>
+        </section>
+        <section class="center-container v-space" style="margin-top: 80px; padding-bottom: 112px;">
+            <h2><span class="section-number">02</span> More granular filters</h2>
+            <p>We added new filters for layover and flight duration, and improved departure/arrival time filters. The layout was also updated to make it easier for users to find what they need.</p><br>
+            <br>
+            <div class="filters-before-after">
+              <img src="../images/filters-before-after-no-bg@2x.png" style="margin-bottom: 0">
+            </div>
+            <br>
+            <p class="text-md text-center">The presets for arrival/departure time were replaced with sliders that let users define their desired range.</p>
+            <br>
+            <div class="phone-container">
+              <div class="phone">
+                <div class="screen">
+                  <img src="../images/filters-before@2x.png" alt="before">
+                  <img src="../images/filters-after@2x.png" alt="after">
+                </div>
+              </div>
+            </div>
+            <p class="text-md" style="max-width: 550px;margin:0 auto;">Beyond adding the requested filters, I also reorganized them to align with user behavior. This resulted to increased engagement and discoverability.</p>
+        </section>
+        <section class="latency-section">
+          <div class="center-container">
+            <h2><span class="section-number">03</span> Reducing flight search latency</h2>
+            <p>Search latency is one of our biggest challenges. Despite implementing progressive loading, users still wait for all results to appear—worried they might miss out on a better deal. Our initial load times can also get so long that skeleton screens can’t mask the delay, often leaving users wondering if the system has frozen.</p>
+            <br>
+            <br>
+            <div class="video-background">
+              <div class="video-container">
+                <video width="100%" playsinline autoplay muted loop><source src="../videos/progressive-loading.mov" type="video/mp4"></video>
+              </div>
+            </div>
+            <br>
+            <p class="text-md text-center">An impression of our current progressive loading experience</p>
+          </div>
+          <div class="center-container  v-space">
+            <p>After exploring and testing several directions, we reworked our search to run two API calls in parallel (one faster call for direct flights only, and another one running in the background for flights with layovers) which allowed us to show relevant flights right away.</p>
+          </div>
+          <div style="max-width: 870px; margin: 40px auto">
+            <p class="text-md">New loading experience:</p><br>
+            <div class="latency-after-container">
+              <div style="flex: 1;">
+                <img src="../images/latency-progress-bar@2x.png" style="width: 100%;margin-bottom: 8px;">
+                <p class="text-md">Progress bar ends when first page of results are fetched</p>
+              </div>
+              <div style="flex: 1;">
+                <img src="../images/latency-tooltip@2x.png" style="width: 100%;margin-bottom: 8px;">
+                <p class="text-md">We fetch direct results first, sorted by price</p>
+              </div>
+            </div>
+          </div>
+          <div class="center-container v-space">
+            <p>Two insights supported our solution:</p>
+            <ul>
+              <li><strong>From user behavior:</strong> we saw that many of our users immediately filter for direct flights</li>
+              <li><strong>From competitive research:</strong> leading travel platforms use a “Recommended” sort, which often highlights fastest and cheapest options first</li>
+            </ul>
+          </div>
+          <div class="center-container v-space">
+            <div style="padding: 40px;background-color: #1E1E1E;">
+              <p style="margin-bottom: 8px"><strong>Results</strong></p>
+              <p>Time to show first results dropped by 26%, giving our client confidence while buying us time to tackle deeper technical improvements.</p>
+            </div>
+          </div>
+          
+        </section>
+        <section class="center-container v-space" style="padding-top: 64px;padding-bottom: 0;">
+            <h2>Key takeaways</h2>
+            <p>Working on these flight improvements has been both challenging and rewarding. Here are a few learnings and themes that emerged along the way:</p>
+            <ul>
+              <li><strong>Design perspective can help solve technical problems.</strong> While the latency issue was fundamentally an engineering challenge, involving design early helped the team prototype quickly and maintain user focus when technical constraints pushed toward less intuitive solutions.</li>
+              <li><strong>Mature domains benefit from proven patterns. </strong> When designing a travel product, there’s value in building on established patterns that users have come to expect rather than reinventing the wheel.</li>
+              <li><strong>Go beyond deliverables. </strong> Whether it be doing design QA or presenting design rationale to stakeholders, the biggest impact comes from being involved throughout the process.</li>
+            </ul>
+            <p>The work continues! We’re looking forward to bring our learnings to our other travel offerings.</p>
+          </section>
+    <section class="masthead">
+        <p><a href="../index.html">Back to all projects</a></p>
+    </section>
+    </main>
+  </body>
+</html>

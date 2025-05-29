@@ -249,7 +249,7 @@ figure {
     margin: 2em 0;
 }
 
-figcaption {
+figcaption, figcaption a {
   font-family: 'IBM Plex Mono', monospace;
   font-size: 14px;
   text-align: center;
