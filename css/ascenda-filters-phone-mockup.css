@@ -2,7 +2,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      margin: 64px 0 20px 0;
+      margin: 64px 0 8px 0;
     }
 
     .phone {
@@ -40,6 +40,37 @@
         animation-delay: 3s;
         z-index: 1;
     }
+
+    .caption-container {
+        position: relative;
+        width: 100%;
+        text-align: center;
+        height: 24px;
+        margin-bottom: 20px;
+        font-weight: 300;
+        font-size: 14px;
+        font-family: 'IBM Plex Mono', monospace;
+    }
+
+    .caption-text {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        animation: crossfade 6s infinite;
+    }
+    
+    .caption-text.before {
+        animation-delay: 0s;
+        z-index: 2;
+    }
+    
+    .caption-text.after {
+        animation-delay: 3s;
+        z-index: 1;
+    }
+
 
     @keyframes crossfade {
         0%   { opacity: 1; }
