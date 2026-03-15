@@ -150,11 +150,15 @@
       .carousel-controls .carousel-counter {
         font-family: 'IBM Plex Mono', monospace;
       }
+      .carousel-btn:focus,
+      .carousel-btn:active {
+        outline: none;
+      }
       .carousel-btn {
         width: 44px;
         height: 44px;
         border-radius: 50%;
-        border: 1.5px solid #000;
+        border: 1.5px solid #928570;
         background: none;
         cursor: pointer;
         display: flex;
@@ -437,9 +441,9 @@
         <div class="carousel-footer">
           <p>Onboarding new customers</p>
           <div class="carousel-controls">
-            <button class="carousel-btn" id="prevBtn" aria-label="Previous slide">←</button>
+            <button class="carousel-btn" id="prevBtn" aria-label="Previous slide"><svg width="19" height="12" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.65715 0.292743C7.0477 -0.0974808 7.68079 -0.0976795 8.07121 0.292743C8.46164 0.683168 8.46144 1.31626 8.07121 1.70681L3.41398 6.36403L23.4667 6.36403L23.4667 8.36403L3.41398 8.36403L8.07121 13.0213C8.46144 13.4118 8.46164 14.0449 8.07121 14.4353C7.68078 14.8257 7.0477 14.8256 6.65715 14.4353L0.292891 8.07106C-0.0976301 7.68054 -0.0976322 7.04752 0.292891 6.657L6.65715 0.292743Z" fill="#928570"/></svg></button>
             <span class="carousel-counter"><span id="currentSlide">1</span> <em>of</em> 4</span>
-            <button class="carousel-btn" id="nextBtn" aria-label="Next slide">→</button>
+            <button class="carousel-btn" id="nextBtn" aria-label="Next slide"><svg width="19" height="12" viewBox="0 0 24 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M15.3955 0.292894C15.786 -0.0976299 16.42 -0.0976294 16.8105 0.292895L23.1738 6.65715C23.5644 7.04768 23.5644 7.68069 23.1738 8.07122L16.8105 14.4355C16.42 14.826 15.786 14.826 15.3955 14.4355C15.0052 14.0451 15.0054 13.4119 15.3955 13.0214L20.0527 8.36418L-7.3122e-07 8.36418L-5.56374e-07 6.36418L20.0527 6.36418L15.3955 1.70696C15.0054 1.31644 15.0052 0.68329 15.3955 0.292894Z" fill="#928570"/></svg></button>
           </div>
         </div>
       </section>
@@ -450,6 +454,12 @@
           <img src="../images/archives-notification-mgmt@2x.png" alt="Notification management UI" id="notificationImg">
         </div>
         <p class="notification-label">Notification management</p>
+      </section>
+
+      <!-- B2C mobile app -->
+      <section class="notification-section" style="margin-top: 80px;">
+          <img src="../images/archives-b2c-mobile-app.png" alt="B2C mobile app">
+        <p class="notification-label" style="margin-top:0px;">B2C mobile app</p>
       </section>
 
       <!-- 02 Loan origination system -->
