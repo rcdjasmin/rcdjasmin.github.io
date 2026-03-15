@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From the archives | Celena Jasmin, Product Designer</title>
+    <link href="../css/style.css" rel="stylesheet">
+    <link href="../css/project-page.css" rel="stylesheet">
+    <link href="../images/favicon.png" rel="shortcut icon" type="image/x-icon">
+    <link href="../images/webclip.png" rel="apple-touch-icon">
+    <style>
+      .project h2 {
+        font-size: 28px;
+      }
+      .section-number {
+        color: #928570;
+      }
+      nav {
+        margin: 0 -20px;
+        z-index: 3;
+      }
+
+      /* Dashboard section */
+      .dashboard-container {
+        max-width: 1087px;
+        margin: 0 auto;
+        display: flex;
+        gap: 32px;
+        align-items: flex-start;
+      }
+      .dashboard-main-wrapper {
+        flex: 1;
+        min-width: 0;
+        position: relative;
+      }
+      .dashboard-main-wrapper img {
+        width: 100%;
+        display: block;
+        margin-bottom: 0;
+      }
+      .dashboard-side-outer {
+        width: 220px;
+        flex-shrink: 0;
+        position: relative;
+      }
+      .dashboard-side-wrapper {
+        width: 100%;
+        max-height: 740px;
+        overflow-y: scroll;
+      }
+      .dashboard-side-wrapper img {
+        width: 100%;
+        display: block;
+        margin-bottom: 0;
+      }
+      .dashboard-img-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.35s ease;
+      }
+      .section-label {
+        max-width: 1087px;
+        margin: 16px auto 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .section-label p {
+        font-size: 21px;
+        font-weight: 300;
+        margin: 0;
+      }
+      .switcher {
+        background-color: #ece3d3;
+        display: flex;
+        gap: 4px;
+        padding: 6px;
+        position: relative;
+      }
+      .switcher-indicator {
+        position: absolute;
+        top: 6px;
+        bottom: 6px;
+        background-color: white;
+        transition: left 0.25s ease, width 0.25s ease;
+        pointer-events: none;
+      }
+      .switcher-btn {
+        padding: 4px 10px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-family: 'IBM Plex Mono', monospace;
+        font-size: 12px;
+        color: #453f34;
+        text-transform: uppercase;
+        line-height: normal;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Carousel */
+      .carousel-section {
+        max-width: 1140px;
+        margin: 80px auto 0;
+        padding: 0 112px;
+        box-sizing: border-box;
+      }
+      .carousel-wrapper {
+        overflow: hidden;
+        position: relative;
+      }
+      .carousel-track {
+        display: flex;
+        transition: transform 0.4s ease;
+      }
+      .carousel-track img {
+        width: 100%;
+        flex-shrink: 0;
+        margin-bottom: 0;
+      }
+      .carousel-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 20px;
+      }
+      .carousel-footer p {
+        font-size: 21px;
+        font-weight: 300;
+      }
+      .carousel-controls {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-size: 21px;
+        font-weight: 300;
+      }
+      .carousel-counter em {
+        font-style: italic;
+        font-family: 'IBM Plex Sans', sans-serif;
+      }
+      .carousel-controls .carousel-counter {
+        font-family: 'IBM Plex Mono', monospace;
+      }
+      .carousel-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        border: 1.5px solid #000;
+        background: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: #000;
+        transition: background-color 0.2s;
+        flex-shrink: 0;
+      }
+      .carousel-btn:hover {
+        background-color: rgba(0,0,0,0.05);
+      }
+
+      /* Notification management */
+      .notification-section {
+        max-width: 1140px;
+        margin: 80px auto 0;
+        padding: 0 112px;
+        box-sizing: border-box;
+      }
+      .notification-card {
+        background-color: #f9f0e1;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 64px 80px;
+        box-sizing: border-box;
+        min-height: 360px;
+      }
+      .notification-card img {
+        width: 100%;
+        margin-bottom: 0;
+        display: block;
+      }
+      .notification-card img[src=""] ,
+      .notification-card img:not([src]) {
+        display: none;
+      }
+      .notification-label {
+        margin-top: 20px;
+        font-size: 21px;
+        font-weight: 300;
+      }
+
+      /* Dark section – loan origination */
+      .dark-section {
+        background-color: #272727;
+        padding: 112px;
+        margin: 0 -20px;
+        margin-top: 0;
+      }
+      .dark-section h2,
+      .dark-section p,
+      .dark-section li,
+      .dark-section strong {
+        color: white;
+      }
+      .dark-section .section-number {
+        color: #928570;
+      }
+      .dark-section img {
+        margin-top: 40px;
+        max-width: 1140px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      /* eLearning section */
+      .elearning-section {
+        background-color: #d1d1c7;
+        padding: 112px;
+        margin: 0 -20px;
+      }
+      .elearning-section h2 {
+        max-width: 870px;
+        margin-bottom: 48px;
+      }
+      .elearning-item {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 48px;
+      }
+      .elearning-item:last-child {
+        margin-bottom: 0;
+      }
+      .elearning-images {
+        display: flex;
+        gap: 32px;
+        align-items: center;
+        order: -1;
+      }
+      .elearning-images img {
+        flex: 1;
+        min-width: 0;
+        width: auto;
+        display: block;
+        margin-bottom: 0;
+      }
+      .elearning-caption {
+        display: flex;
+        flex-direction: row;
+        gap: 12px;
+        align-items: baseline;
+        font-size: 21px;
+        font-weight: 300;
+        order: 0;
+      }
+      .elearning-caption strong {
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      /* Data validation */
+      .data-validation-section {
+        padding: 112px;
+        margin: 0 -20px;
+      }
+      .data-validation-section h2 {
+        max-width: 1140px;
+        margin: 0 auto 48px;
+      }
+      .data-validation-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 32px;
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+      .data-validation-grid img {
+        width: 100%;
+        display: block;
+        margin-bottom: 0;
+      }
+
+      @media (max-width: 769px) {
+        nav {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        .dashboard-container {
+          flex-direction: column;
+          gap: 16px;
+        }
+        .dashboard-side-outer {
+          width: 220px;
+          margin: 0 auto;
+        }
+        .dashboard-side-wrapper {
+          max-height: 400px;
+        }
+        .section-label {
+          align-items: center;
+        }
+        .section-label p,
+        .carousel-footer p,
+        .notification-label,
+        .elearning-caption {
+          font-size: 14px;
+        }
+        .carousel-section {
+          padding: 0;
+        }
+        .carousel-footer {
+          align-items: center;
+        }
+        .carousel-controls {
+          font-size: 14px;
+        }
+        .carousel-btn {
+          width: 40px;
+          height: 40px;
+          font-size: 16px;
+        }
+        .notification-section {
+          padding: 0;
+        }
+        .notification-card {
+          padding: 40px 20px;
+          min-height: 200px;
+        }
+        .dark-section {
+          padding: 40px 20px;
+        }
+        .elearning-section {
+          padding: 40px 20px;
+        }
+        .elearning-images {
+          flex-direction: row;
+          overflow-x: auto;
+          gap: 24px;
+          margin-right: -20px;
+          scroll-snap-type: x mandatory;
+          scrollbar-width: none;
+        }
+        .elearning-images::-webkit-scrollbar {
+          display: none;
+        }
+        .elearning-images img {
+          flex: none;
+          width: 328px;
+          max-width: none;
+          scroll-snap-align: start;
+        }
+        .elearning-caption {
+          flex-direction: column;
+          gap: 0;
+        }
+        .data-validation-section {
+          padding: 40px 20px;
+        }
+        .data-validation-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.html">CELENA JASMIN</a></li>
+        <li>
+          <a href="mailto:celenajasmin@gmail.com">celenajasmin@gmail.com</a>
+        </li>
+      </ul>
+    </nav>
+    <main class="project">
+
+      <div class="masthead">
+        <h5><strong>2024</strong></h5>
+        <h1>From the archives</h1>
+      </div>
+
+      <section class="center-container v-space">
+        <p>In 2024, I worked as a freelance product design consultant for a company building multiple platforms across the finance and education domains. Here's a selection of work from that period, covering dashboards, operational tools, and complex product workflows.</p>
+      </section>
+
+      <!-- 01 Online banking for rural banks -->
+      <section class="center-container v-space" style="margin-top: 80px;">
+        <h2><span class="section-number">01</span> Online banking for rural banks</h2>
+      </section>
+
+      <!-- Dashboard -->
+      <section style="margin-top: 24px;">
+        <div class="dashboard-container">
+          <div class="dashboard-main-wrapper">
+            <img src="../images/archives-dashboard-main.png" id="dashboardMain" alt="Executive dashboard overview">
+            <img id="dashboardMainOverlay" class="dashboard-img-overlay" alt="" aria-hidden="true">
+          </div>
+          <div class="dashboard-side-outer">
+            <div class="dashboard-side-wrapper" id="dashboardSideWrapper">
+              <img src="../images/archives-dashboard-side.png" id="dashboardSide" alt="Dashboard summary panel">
+            </div>
+            <img id="dashboardSideOverlay" class="dashboard-img-overlay" alt="" aria-hidden="true">
+          </div>
+        </div>
+        <div class="section-label">
+          <p>Executive dashboards</p>
+          <div class="switcher">
+            <div class="switcher-indicator" id="switcherIndicator"></div>
+            <button class="switcher-btn switcher-active" data-view="overview">OVERVIEW</button>
+            <button class="switcher-btn" data-view="compliance">COMPLIANCE</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Onboarding carousel -->
+      <section class="carousel-section">
+        <div class="carousel-wrapper">
+          <div class="carousel-track" id="carouselTrack">
+            <img src="../images/archives-onboarding-1.png" alt="Onboarding slide 1">
+            <img src="../images/archives-onboarding-2.png" alt="Onboarding slide 2">
+            <img src="../images/archives-onboarding-3.png" alt="Onboarding slide 3">
+            <img src="../images/archives-onboarding-4.png" alt="Onboarding slide 4">
+          </div>
+        </div>
+        <div class="carousel-footer">
+          <p>Onboarding new customers</p>
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="prevBtn" aria-label="Previous slide">←</button>
+            <span class="carousel-counter"><span id="currentSlide">1</span> <em>of</em> 4</span>
+            <button class="carousel-btn" id="nextBtn" aria-label="Next slide">→</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Notification management -->
+      <section class="notification-section" style="margin-top: 80px;">
+        <div class="notification-card" id="notificationCard">
+          <img src="../images/archives-notification-mgmt@2x.png" alt="Notification management UI" id="notificationImg">
+        </div>
+        <p class="notification-label">Notification management</p>
+      </section>
+
+      <!-- 02 Loan origination system -->
+      <section class="dark-section" style="margin-top: 80px;">
+        <div style="max-width: 870px; margin: 0 auto;">
+          <h2><span class="section-number">02</span> Loan origination system</h2>
+        </div>
+        <img src="../images/archives-loan-origination.png" alt="Loan origination system">
+      </section>
+
+      <!-- 03 eLearning platform -->
+      <section class="elearning-section">
+        <h2><span class="section-number">03</span> eLearning platform</h2>
+        <div class="elearning-item">
+          <p class="elearning-caption"><strong>End user</strong><span>Browsing, buying and taking a course</span></p>
+          <div class="elearning-images">
+            <img src="../images/archives-elearning-71.png" alt="End user – course page">
+            <img src="../images/archives-elearning-72.png" alt="End user – shopping cart">
+            <img src="../images/archives-elearning-73.png" alt="End user – taking a course">
+          </div>
+        </div>
+        <div class="elearning-item">
+          <p class="elearning-caption"><strong>Admin user</strong><span>User management, course creation and learning path creation</span></p>
+          <div class="elearning-images">
+            <img src="../images/archives-elearning-74.png" alt="Admin user – manage users">
+            <img src="../images/archives-elearning-75.png" alt="Admin user – course creation">
+            <img src="../images/archives-elearning-76.png" alt="Admin user – learning paths">
+          </div>
+        </div>
+        <div class="elearning-item">
+          <p class="elearning-caption"><strong>Platform admin</strong><span>Course and subscriptions management</span></p>
+          <div class="elearning-images">
+            <img src="../images/archives-elearning-77.png" alt="Platform admin – course management">
+            <img src="../images/archives-elearning-78.png" alt="Platform admin – subscriptions">
+            <img src="../images/archives-elearning-79.png" alt="Platform admin – details">
+          </div>
+        </div>
+      </section>
+
+      <!-- 04 Data validation tool -->
+      <section class="data-validation-section">
+        <h2><span class="section-number">04</span> Data validation tool</h2>
+        <div class="data-validation-grid">
+          <img src="../images/archives-data-validation-80.png" alt="Reports list">
+          <img src="../images/archives-data-validation-81.png" alt="Upload and validate – empty state">
+          <img src="../images/archives-data-validation-82.png" alt="Upload and validate – uploading">
+          <img src="../images/archives-data-validation-83.png" alt="Validation report">
+        </div>
+      </section>
+
+      <section class="masthead">
+        <p><a href="../index.html">Back to all projects</a></p>
+      </section>
+
+    </main>
+
+    <script>
+      // Hide notification image if missing, keep beige card
+      (function () {
+        var img = document.getElementById('notificationImg');
+        if (img) {
+          img.addEventListener('error', function () {
+            img.style.display = 'none';
+          });
+        }
+      })();
+
+      // Dashboard switcher
+      (function () {
+        var btns = document.querySelectorAll('.switcher-btn');
+        var indicator = document.getElementById('switcherIndicator');
+        var mainImg = document.getElementById('dashboardMain');
+        var sideImg = document.getElementById('dashboardSide');
+        var sideWrapper = document.getElementById('dashboardSideWrapper');
+        var images = {
+          overview: {
+            main: '../images/archives-dashboard-main.png',
+            side: '../images/archives-dashboard-side.png'
+          },
+          compliance: {
+            main: '../images/archives-dashboard-compliance-main.png',
+            side: '../images/archives-dashboard-compliance-side.png'
+          }
+        };
+
+        function moveIndicator(btn) {
+          var switcher = btn.parentElement;
+          var switcherLeft = switcher.getBoundingClientRect().left;
+          var btnRect = btn.getBoundingClientRect();
+          indicator.style.left = (btnRect.left - switcherLeft) + 'px';
+          indicator.style.width = btnRect.width + 'px';
+        }
+
+        function swapImages(view) {
+          var mainOverlay = document.getElementById('dashboardMainOverlay');
+          var sideOverlay = document.getElementById('dashboardSideOverlay');
+
+          // Freeze current images onto overlays (no transition)
+          mainOverlay.style.transition = 'none';
+          sideOverlay.style.transition = 'none';
+          mainOverlay.src = mainImg.src;
+          sideOverlay.src = sideImg.src;
+          mainOverlay.style.opacity = '1';
+          sideOverlay.style.opacity = '1';
+
+          // Swap underlying images immediately
+          mainImg.src = images[view].main;
+          sideImg.src = images[view].side;
+          sideWrapper.scrollTop = 0;
+
+          // Fade overlays out (revealing new images beneath)
+          requestAnimationFrame(function () {
+            requestAnimationFrame(function () {
+              mainOverlay.style.transition = 'opacity 0.35s ease';
+              sideOverlay.style.transition = 'opacity 0.35s ease';
+              mainOverlay.style.opacity = '0';
+              sideOverlay.style.opacity = '0';
+            });
+          });
+        }
+
+        btns.forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var view = btn.dataset.view;
+            btns.forEach(function (b) { b.classList.remove('switcher-active'); });
+            btn.classList.add('switcher-active');
+            moveIndicator(btn);
+            swapImages(view);
+          });
+        });
+
+        // Init indicator position on load
+        var activeBtn = document.querySelector('.switcher-btn.switcher-active');
+        if (activeBtn) moveIndicator(activeBtn);
+      })();
+
+      (function () {
+        var track = document.getElementById('carouselTrack');
+        var prevBtn = document.getElementById('prevBtn');
+        var nextBtn = document.getElementById('nextBtn');
+        var currentSlideEl = document.getElementById('currentSlide');
+        var total = 4;
+        var current = 0;
+
+        function update() {
+          track.style.transform = 'translateX(-' + (current * 100) + '%)';
+          currentSlideEl.textContent = current + 1;
+          prevBtn.style.opacity = current === 0 ? '0.3' : '1';
+          nextBtn.style.opacity = current === total - 1 ? '0.3' : '1';
+        }
+
+        prevBtn.addEventListener('click', function () {
+          if (current > 0) { current--; update(); }
+        });
+
+        var touchStartX = 0;
+        track.addEventListener('touchstart', function (e) {
+          touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        track.addEventListener('touchend', function (e) {
+          var diff = touchStartX - e.changedTouches[0].clientX;
+          if (Math.abs(diff) > 40) {
+            if (diff > 0 && current < total - 1) { current++; update(); }
+            else if (diff < 0 && current > 0) { current--; update(); }
+          }
+        }, { passive: true });
+
+        nextBtn.addEventListener('click', function () {
+          if (current < total - 1) { current++; update(); }
+        });
+
+        update();
+      })();
+    </script>
+  </body>
+</html>
